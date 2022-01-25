@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parikapp_driver/screens/vehicle_owner/register_vehicle_details.dart';
 import 'package:parikapp_driver/widgets/textField.dart';
 
 enum IdType { passport, nationalId }
@@ -95,7 +96,10 @@ class _RegisterOwnerFormState extends State<RegisterOwnerForm> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
               child: ElevatedButton(
-                onPressed: () => {},
+                onPressed: () => {
+                  Navigator.of(context)
+                      .pushNamed(RegisterVehicleDetails.routeName)
+                },
                 child: const Text("CONTINUE"),
               ),
             )

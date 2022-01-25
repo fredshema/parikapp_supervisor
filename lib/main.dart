@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:parikapp_driver/screens/vehicle_owner/register_owner.dart';
+import 'package:parikapp_driver/screens/vehicle_owner/register_vehicle_details.dart';
 import "./utils/custom_colors.dart";
 import './screens/splash_screen.dart';
 import './screens/activation_screen.dart';
@@ -65,6 +66,8 @@ class MyApp extends StatelessWidget {
         routes: {
           RegisterOwner.routeName: (ctx) =>
               const SafeArea(child: RegisterOwner()),
+          RegisterVehicleDetails.routeName: (ctx) =>
+              const SafeArea(child: RegisterVehicleDetails()),
         },
       ),
     );

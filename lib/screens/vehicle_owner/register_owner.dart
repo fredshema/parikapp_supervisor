@@ -23,24 +23,25 @@ class _RegisterOwnerState extends State<RegisterOwner> {
         child: SingleChildScrollView(
           child: ConstrainedBox(
             constraints: BoxConstraints(
-              maxHeight: Variables.deviceHeight(context),
               minHeight: Variables.deviceHeight(context),
             ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Text(
-                  "Vehicle Owner Details",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+            child: IntrinsicHeight(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: const [
+                  Text(
+                    "Vehicle Owner Details",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                const Text("Provide only vehicle owner's information"),
-                const SizedBox(height: 20),
-                RegisterOwnerForm(),
-                // vehicle owner form
-              ],
+                  Text("Provide only vehicle owner's information"),
+                  SizedBox(height: 20),
+                  RegisterOwnerForm(),
+                  // vehicle owner form
+                ],
+              ),
             ),
           ),
         ),

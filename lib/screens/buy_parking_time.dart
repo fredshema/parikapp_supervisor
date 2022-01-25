@@ -101,11 +101,11 @@ class _BuyParkingTimeState extends State<BuyParkingTime> {
                     TicketCard(
                       icon: Icons.confirmation_num,
                       text: "Buy Parking Time",
-                      path: RegisterOwner.routeName,
                     ),
                     TicketCard(
                       icon: Icons.directions_car,
                       text: "Register a vehicle",
+                      path: RegisterOwner.routeName,
                     ),
                   ],
                 )

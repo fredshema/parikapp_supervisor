@@ -16,7 +16,7 @@ class TicketCard extends StatelessWidget {
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-      child: GestureDetector(
+      child: InkWell(
         onTap: () => {
           if (path != "") {Navigator.of(context).pushNamed(path)}
         },
