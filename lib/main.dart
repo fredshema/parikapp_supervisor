@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:parikapp_driver/screens/vehicle_owner/confirm_registration_details.dart';
 import 'package:parikapp_driver/screens/vehicle_owner/register_owner.dart';
 import 'package:parikapp_driver/screens/vehicle_owner/register_vehicle_details.dart';
+import 'package:parikapp_driver/screens/vehicles/my_vehicles.dart';
 import "./utils/custom_colors.dart";
 import './screens/splash_screen.dart';
 import './screens/activation_screen.dart';
-import './screens/buy_parking_time.dart';
+import 'screens/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -62,12 +64,16 @@ class MyApp extends StatelessWidget {
             ),
           )),
         ),
-        home: const SafeArea(child: BuyParkingTime()),
+        home: const SafeArea(child: ActivationScreen()),
         routes: {
+          Home.routeName: (ctx) => const SafeArea(child: Home()),
           RegisterOwner.routeName: (ctx) =>
               const SafeArea(child: RegisterOwner()),
           RegisterVehicleDetails.routeName: (ctx) =>
               const SafeArea(child: RegisterVehicleDetails()),
+          ConfirmRegistrationDetails.routeName: (ctx) =>
+              const SafeArea(child: ConfirmRegistrationDetails()),
+          MyVehicles.routeName: (ctx) => const SafeArea(child: MyVehicles()),
         },
       ),
     );

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:parikapp_driver/utils/custom_colors.dart';
 
 class Navbar extends AppBar {
-  TextStyle textStyle;
+ final TextStyle textStyle;
 
   Navbar(
-      {String name = "xxxTest", this.textStyle = const TextStyle(), Key? key})
+      {String name = "ParikApp", this.textStyle = const TextStyle(), Key? key})
       : super(
           key: key,
           toolbarHeight: 75,

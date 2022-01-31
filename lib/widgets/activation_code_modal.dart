@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:parikapp_driver/screens/home.dart';
+import 'package:parikapp_driver/screens/vehicles/my_vehicles.dart';
 
 class ActivationCodeModal extends StatefulWidget {
   const ActivationCodeModal({Key? key}) : super(key: key);
@@ -62,35 +64,46 @@ class _ActivationCodeModalState extends State<ActivationCodeModal> {
 
     Widget codeInputTab() {
       return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+        padding: const EdgeInsets.only(top: 20),
         child: Column(
           children: [
-            SizedBox(
-              width: deviceWidth * 70 / 100,
-              child: const Text(
-                "Enter and confirm activation code sent to phone number: 078xxxxxx",
-                style: TextStyle(fontSize: 17),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  codeInput(),
-                  codeInput(),
-                  codeInput(),
-                  codeInput(),
-                ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: SizedBox(
+                width: deviceWidth * 70 / 100,
+                child: const Text(
+                  "Enter and confirm activation code sent to phone number: 078xxxxxx",
+                  style: TextStyle(fontSize: 17),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    codeInput(),
+                    codeInput(),
+                    codeInput(),
+                    codeInput(),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 0),
               child: ElevatedButton(
                 onPressed: activate,
                 child: const Text("CONFIRM"),
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(0),
+                  ),
+                ),
               ),
             )
           ],
@@ -100,26 +113,42 @@ class _ActivationCodeModalState extends State<ActivationCodeModal> {
 
     Widget activationSuccess() {
       return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+        padding: const EdgeInsets.only(top: 15),
         child: Column(
-          children: const [
-            Icon(
+          children: [
+            const Icon(
               Icons.check_circle,
               size: 60,
               color: Colors.green,
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(top: 5),
               child: Text(
                 "Success",
                 style: TextStyle(fontSize: 20),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(top: 15, bottom: 15),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 2),
               child: Text(
                 "ParikApp is now linked with this device. You can now Buy and Register your vehicles as well as check parking and vehicle status.",
                 textAlign: TextAlign.center,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 0),
+              child: ElevatedButton(
+                onPressed: () => {
+                  Navigator.pop(context),
+                  Navigator.of(context)
+                      .pushNamedAndRemoveUntil(Home.routeName, (_) => false)
+                },
+                child: const Text("CLOSE"),
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(0),
+                  ),
+                ),
               ),
             )
           ],

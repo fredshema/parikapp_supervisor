@@ -2,18 +2,21 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:parikapp_driver/screens/vehicle_owner/register_owner.dart';
+import 'package:parikapp_driver/widgets/sidebar.dart';
 import '../widgets/navbar.dart';
 import '../widgets/activation_code_modal.dart';
 import '../widgets/ticket_card.dart';
 
-class BuyParkingTime extends StatefulWidget {
-  const BuyParkingTime({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  static String routeName = "/home";
+
+  const Home({Key? key}) : super(key: key);
 
   @override
-  _BuyParkingTimeState createState() => _BuyParkingTimeState();
+  _HomeState createState() => _HomeState();
 }
 
-class _BuyParkingTimeState extends State<BuyParkingTime> {
+class _HomeState extends State<Home> {
   late Timer _timer;
 
   @override
@@ -49,6 +52,7 @@ class _BuyParkingTimeState extends State<BuyParkingTime> {
 
     return Scaffold(
       appBar: Navbar(),
+      drawer: const SidebarWidget(),
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(

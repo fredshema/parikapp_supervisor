@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:parikapp_driver/screens/vehicle_owner/confirm_registration_details.dart';
 import 'package:parikapp_driver/widgets/inputSelect.dart';
 import 'package:parikapp_driver/widgets/textField.dart';
 
@@ -159,7 +158,7 @@ class _RegisterVehicleFormState extends State<RegisterVehicleForm> {
               children: [
                 Flexible(
                   child: Card(
-                    margin: EdgeInsets.all(0),
+                    margin: const EdgeInsets.all(0),
                     color: Colors.grey.shade600,
                     child: const Padding(
                       padding: EdgeInsets.all(10),
@@ -188,7 +187,10 @@ class _RegisterVehicleFormState extends State<RegisterVehicleForm> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
               child: ElevatedButton(
-                onPressed: () => {},
+                onPressed: () => {
+                  Navigator.of(context)
+                      .pushNamed(ConfirmRegistrationDetails.routeName)
+                },
                 child: const Text("CONTINUE"),
               ),
             )
