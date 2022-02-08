@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:parikapp_driver/screens/tickets/buy_ticket.dart';
 import 'package:parikapp_driver/screens/vehicle_owner/register_owner.dart';
 import 'package:parikapp_driver/widgets/sidebar.dart';
+import 'package:parikapp_driver/widgets/tickets/parking_status.dart';
 import '../widgets/navbar.dart';
 import '../widgets/activation_code_modal.dart';
 import '../widgets/ticket_card.dart';
@@ -102,9 +104,11 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     SizedBox(height: 20),
+                    ParkingStatus(),
                     TicketCard(
                       icon: Icons.confirmation_num,
                       text: "Buy Parking Time",
+                      path: BuyTicket.routeName,
                     ),
                     TicketCard(
                       icon: Icons.directions_car,

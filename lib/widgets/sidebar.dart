@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:parikapp_driver/screens/about.dart';
 import 'package:parikapp_driver/screens/home.dart';
+import 'package:parikapp_driver/screens/messages/my_messages.dart';
+import 'package:parikapp_driver/screens/profile/my_profile.dart';
+import 'package:parikapp_driver/screens/statements/my_statements.dart';
 import 'package:parikapp_driver/screens/vehicles/my_vehicles.dart';
 
 class SidebarWidget extends StatelessWidget {
@@ -43,7 +47,7 @@ class SidebarWidget extends StatelessWidget {
             color: Colors.white24,
             height: 1,
           ),
-          const SizedBox(height: 48),
+          const SizedBox(height: 30),
           buildMenuItem(
               icon: Icons.home,
               text: "Home",
@@ -80,6 +84,7 @@ Widget buildMenuItem(
   const hoverColor = Colors.white70;
 
   return ListTile(
+    contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 20),
     leading: Icon(
       icon,
       color: color,
@@ -105,6 +110,26 @@ void selectedItem(BuildContext context, index) {
       Navigator.of(context).pop();
       Navigator.of(context)
           .pushNamedAndRemoveUntil(MyVehicles.routeName, (_) => false);
+      break;
+    case 2:
+      Navigator.of(context).pop();
+      Navigator.of(context)
+          .pushNamedAndRemoveUntil(MyStatements.routeName, (_) => false);
+      break;
+    case 3:
+      Navigator.of(context).pop();
+      Navigator.of(context)
+          .pushNamedAndRemoveUntil(MyMessages.routeName, (_) => false);
+      break;
+    case 4:
+      Navigator.of(context).pop();
+      Navigator.of(context)
+          .pushNamedAndRemoveUntil(MyProfile.routeName, (_) => false);
+      break;
+    case 5:
+      Navigator.of(context).pop();
+      Navigator.of(context)
+          .pushNamedAndRemoveUntil(About.routeName, (_) => false);
       break;
   }
 }

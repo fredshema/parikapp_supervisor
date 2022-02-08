@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:parikapp_driver/screens/home.dart';
+import 'package:parikapp_driver/screens/profile/my_profile.dart';
 
-class ActivationCodeModal extends StatefulWidget {
-  const ActivationCodeModal({Key? key}) : super(key: key);
+class EditPhoneOtpModal extends StatefulWidget {
+  const EditPhoneOtpModal({Key? key}) : super(key: key);
 
   @override
-  State<ActivationCodeModal> createState() => _ActivationCodeModalState();
+  State<EditPhoneOtpModal> createState() => _EditPhoneOtpModalState();
 }
 
-class _ActivationCodeModalState extends State<ActivationCodeModal> {
+class _EditPhoneOtpModalState extends State<EditPhoneOtpModal> {
   bool isActivated = false;
 
   @override
@@ -41,7 +41,7 @@ class _ActivationCodeModalState extends State<ActivationCodeModal> {
         decoration: BoxDecoration(
             border: Border.all(
               width: 1,
-              color: Theme.of(context).colorScheme.primary,
+              color: Colors.orange,
             ),
             borderRadius: const BorderRadius.all(Radius.circular(5))),
         child: Center(
@@ -99,6 +99,7 @@ class _ActivationCodeModalState extends State<ActivationCodeModal> {
                 onPressed: activate,
                 child: const Text("CONFIRM"),
                 style: ElevatedButton.styleFrom(
+                  primary: Colors.orange,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(0),
                   ),
@@ -139,11 +140,12 @@ class _ActivationCodeModalState extends State<ActivationCodeModal> {
               child: ElevatedButton(
                 onPressed: () => {
                   Navigator.pop(context),
-                  Navigator.of(context)
-                      .pushNamedAndRemoveUntil(Home.routeName, (_) => false)
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      MyProfile.routeName, (_) => false)
                 },
                 child: const Text("CLOSE"),
                 style: ElevatedButton.styleFrom(
+                  primary: Colors.orange,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(0),
                   ),
@@ -171,10 +173,9 @@ class _ActivationCodeModalState extends State<ActivationCodeModal> {
                         minWidth: MediaQuery.of(context).size.width),
                     child: Container(
                       padding: const EdgeInsets.all(15.0),
-                      decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.primary),
+                      decoration: BoxDecoration(color: Colors.orange),
                       child: const Text(
-                        "Activating ParikApp",
+                        "Confirm Linked number change",
                         style: TextStyle(
                           fontSize: 17,
                           color: Colors.white,

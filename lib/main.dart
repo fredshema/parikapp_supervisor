@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:parikapp_driver/screens/about.dart';
+import 'package:parikapp_driver/screens/messages/my_messages.dart';
+import 'package:parikapp_driver/screens/profile/my_profile.dart';
+import 'package:parikapp_driver/screens/statements/my_statements.dart';
+import 'package:parikapp_driver/screens/tickets/buy_ticket.dart';
+import 'package:parikapp_driver/screens/tickets/pay_penalty.dart';
 import 'package:parikapp_driver/screens/vehicle_owner/confirm_registration_details.dart';
 import 'package:parikapp_driver/screens/vehicle_owner/register_owner.dart';
 import 'package:parikapp_driver/screens/vehicle_owner/register_vehicle_details.dart';
@@ -64,7 +70,8 @@ class MyApp extends StatelessWidget {
             ),
           )),
         ),
-        home: const SafeArea(child: ActivationScreen()),
+        home: const SafeArea(child: Home()),
+        // home: const SafeArea(child: ActivationScreen()),
         routes: {
           Home.routeName: (ctx) => const SafeArea(child: Home()),
           RegisterOwner.routeName: (ctx) =>
@@ -74,6 +81,13 @@ class MyApp extends StatelessWidget {
           ConfirmRegistrationDetails.routeName: (ctx) =>
               const SafeArea(child: ConfirmRegistrationDetails()),
           MyVehicles.routeName: (ctx) => const SafeArea(child: MyVehicles()),
+          BuyTicket.routeName: (ctx) => const SafeArea(child: BuyTicket()),
+          PayPenalty.routeName: (ctx) => const SafeArea(child: PayPenalty()),
+          MyStatements.routeName: (ctx) =>
+              const SafeArea(child: MyStatements()),
+          MyMessages.routeName: (ctx) => const SafeArea(child: MyMessages()),
+          MyProfile.routeName: (ctx) => const SafeArea(child: MyProfile()),
+          About.routeName: (ctx) => const SafeArea(child: About()),
         },
       ),
     );
