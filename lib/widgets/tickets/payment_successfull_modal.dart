@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:getwidget/getwidget.dart';
 import 'package:parikapp_driver/screens/home.dart';
 
 class PaymentSuccessModal extends StatelessWidget {
@@ -61,8 +60,12 @@ class PaymentSuccessModal extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () => {
                         Navigator.of(context).pop(),
-                        Navigator.of(context).pushNamedAndRemoveUntil(
-                            Home.routeName, (_) => false)
+                        Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const Home(showParkingStatus: true)),
+                          (_) => false,
+                        )
                       },
                       child: const Text("CONTINUE"),
                       style: ElevatedButton.styleFrom(primary: Colors.green),

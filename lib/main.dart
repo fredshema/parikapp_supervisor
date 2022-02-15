@@ -9,9 +9,9 @@ import 'package:parikapp_driver/screens/tickets/pay_penalty.dart';
 import 'package:parikapp_driver/screens/vehicle_owner/confirm_registration_details.dart';
 import 'package:parikapp_driver/screens/vehicle_owner/register_owner.dart';
 import 'package:parikapp_driver/screens/vehicle_owner/register_vehicle_details.dart';
+import 'package:parikapp_driver/screens/vehicles/edit_vehicle.dart';
 import 'package:parikapp_driver/screens/vehicles/my_vehicles.dart';
 import "./utils/custom_colors.dart";
-import './screens/splash_screen.dart';
 import './screens/activation_screen.dart';
 import 'screens/home.dart';
 
@@ -70,8 +70,8 @@ class MyApp extends StatelessWidget {
             ),
           )),
         ),
-        home: const SafeArea(child: Home()),
-        // home: const SafeArea(child: ActivationScreen()),
+        // home: const SafeArea(child: Home()),
+        home: const SafeArea(child: ActivationScreen()),
         routes: {
           Home.routeName: (ctx) => const SafeArea(child: Home()),
           RegisterOwner.routeName: (ctx) =>
@@ -88,6 +88,10 @@ class MyApp extends StatelessWidget {
           MyMessages.routeName: (ctx) => const SafeArea(child: MyMessages()),
           MyProfile.routeName: (ctx) => const SafeArea(child: MyProfile()),
           About.routeName: (ctx) => const SafeArea(child: About()),
+          EditVehicle.routeName: (ctx) => const SafeArea(
+                  child: EditVehicle(
+                vehicle: {},
+              )),
         },
       ),
     );

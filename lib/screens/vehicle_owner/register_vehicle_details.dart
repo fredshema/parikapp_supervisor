@@ -38,7 +38,7 @@ class _RegisterVehicleDetailsState extends State<RegisterVehicleDetails> {
                       ),
                     ),
                     Text("Provide only vehicle information"),
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
                     RegisterVehicleForm(),
                   ],
                 ),

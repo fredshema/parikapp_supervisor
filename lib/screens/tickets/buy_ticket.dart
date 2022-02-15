@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:parikapp_driver/widgets/inputSelect.dart';
+import 'package:parikapp_driver/widgets/input_select.dart';
 import 'package:parikapp_driver/widgets/layout_widget.dart';
 import 'package:parikapp_driver/widgets/navbar.dart';
-import 'package:parikapp_driver/widgets/textField.dart';
+import 'package:parikapp_driver/widgets/text_field.dart';
 import 'package:parikapp_driver/widgets/tickets/awaiting_payment_modal.dart';
 
 class BuyTicket extends StatefulWidget {

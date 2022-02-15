@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:parikapp_driver/screens/home.dart';
 import 'package:parikapp_driver/screens/vehicle_owner/register_owner.dart';
 import 'package:parikapp_driver/widgets/sidebar.dart';
-import 'package:parikapp_driver/widgets/textField.dart';
+import 'package:parikapp_driver/widgets/text_field.dart';
 import 'package:parikapp_driver/widgets/vehicle_card.dart';
 import '../../utils/variables.dart';
 import '../../widgets/navbar.dart';
-import '../../widgets/vehicle_owner/register_vehicle_form.dart';
 
 class MyVehicles extends StatefulWidget {
   static const String routeName = "/vehicles/mine";

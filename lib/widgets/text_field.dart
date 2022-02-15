@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 
 class TextInput extends StatelessWidget {
   final String hintText;
+  final String initialValue;
 
-  const TextInput({Key? key, this.hintText = ""}) : super(key: key);
+  const TextInput({Key? key, this.hintText = "", this.initialValue = ""})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      initialValue: initialValue,
       decoration: InputDecoration(
         hintText: hintText,
         enabledBorder: OutlineInputBorder(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parikapp_driver/screens/vehicle_owner/register_vehicle_details.dart';
-import 'package:parikapp_driver/widgets/textField.dart';
+import 'package:parikapp_driver/widgets/text_field.dart';
 
 enum IdType { passport, nationalId }
 

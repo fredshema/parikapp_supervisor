@@ -1,7 +1,7 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:parikapp_driver/widgets/modals/vehicle_details_modal.dart';
+import 'package:parikapp_driver/screens/vehicles/edit_vehicle.dart';
+import 'package:parikapp_driver/widgets/vehicle/delete_vehicle_modal.dart';
+import 'package:parikapp_driver/widgets/vehicle/view_vehicle_modal.dart';
 
 class VehicleCard extends StatelessWidget {
   final Map<String, dynamic> vehicle;
@@ -13,7 +13,24 @@ class VehicleCard extends StatelessWidget {
       showModalBottomSheet(
           context: context,
           builder: (builder) {
-            return VehicalDetailsModal(
+            return ViewVehicleModal(
+              vehicle: vehicle,
+            );
+          });
+      return () => {};
+    }
+
+    VoidCallback editVehicleDetails(vehicle) {
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => EditVehicle(vehicle: vehicle)));
+      return () => {};
+    }
+
+    VoidCallback deleteVehicleDetails(vehicle) {
+      showModalBottomSheet(
+          context: context,
+          builder: (builder) {
+            return DeleteVehicleModal(
               vehicle: vehicle,
             );
           });
@@ -82,7 +99,7 @@ class VehicleCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       InkWell(
-                        onTap: () => {},
+                        onTap: () => {editVehicleDetails(vehicle)},
                         child: Container(
                           decoration: BoxDecoration(
                               border:
@@ -104,7 +121,7 @@ class VehicleCard extends StatelessWidget {
                         ),
                       ),
                       InkWell(
-                        onTap: () => {},
+                        onTap: () => {deleteVehicleDetails(vehicle)},
                         child: Container(
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.red, width: 2),

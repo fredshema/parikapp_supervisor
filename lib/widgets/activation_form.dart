@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parikapp_driver/widgets/text_field.dart';
 
 class ActivationForm extends StatelessWidget {
   VoidCallback generateOtp;
@@ -14,25 +15,20 @@ class ActivationForm extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const Padding(
-              padding: EdgeInsets.only(top: 70, bottom: 20),
+              padding: EdgeInsets.only(top: 70, bottom: 40),
               child: Text(
                 "ParikApp need to be activated so only your device can use it.",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 19, color: Colors.white),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: TextFormField(
-                decoration: const InputDecoration(
-                  hintText: "Enter your phone number",
-                ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Phone Number Required';
-                  }
-                },
-              ),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: TextInput(hintText: "Enter your names"),
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: TextInput(hintText: "Enter your phone number"),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),

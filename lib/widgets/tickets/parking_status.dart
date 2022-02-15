@@ -4,7 +4,8 @@ import 'package:parikapp_driver/screens/tickets/pay_penalty.dart';
 import 'package:parikapp_driver/widgets/timer_widget.dart';
 
 class ParkingStatus extends StatefulWidget {
-  const ParkingStatus({Key? key}) : super(key: key);
+  final Map<String, dynamic> parkingTime;
+  const ParkingStatus({Key? key, required this.parkingTime}) : super(key: key);
 
   @override
   _ParkingStatusState createState() => _ParkingStatusState();
@@ -120,12 +121,11 @@ class _ParkingStatusState extends State<ParkingStatus> {
                             borderRadius: BorderRadius.circular(10)),
                         child: TimerWidget(
                           key: Key(timerKey),
-                          duration: duration,
+                          duration: widget.parkingTime["duration"],
                           textColor: timeEnded ? Colors.white : Colors.black,
                           onEnd: () {
                             setState(() {
                               timeEnded = true;
-                              duration = const Duration(seconds: 5);
                             });
                           },
                         ),

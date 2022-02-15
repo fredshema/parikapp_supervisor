@@ -173,7 +173,7 @@ class _EditPhoneOtpModalState extends State<EditPhoneOtpModal> {
                         minWidth: MediaQuery.of(context).size.width),
                     child: Container(
                       padding: const EdgeInsets.all(15.0),
-                      decoration: BoxDecoration(color: Colors.orange),
+                      decoration: const BoxDecoration(color: Colors.orange),
                       child: const Text(
                         "Confirm Linked number change",
                         style: TextStyle(

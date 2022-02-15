@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parikapp_driver/widgets/message_card.dart';
 import 'package:parikapp_driver/widgets/sidebar.dart';
-import 'package:parikapp_driver/widgets/textField.dart';
 import '../../utils/variables.dart';
 import '../../widgets/navbar.dart';
 
@@ -57,12 +56,6 @@ class _MyMessagesState extends State<MyMessages> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.only(bottom: 10),
-                      child: TextInput(
-                        hintText: "Search",
-                      ),
-                    ),
                     ...messages.map((message) => MessageCard(message: message))
                   ],
                 ),

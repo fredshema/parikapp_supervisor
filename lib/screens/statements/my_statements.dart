@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:parikapp_driver/screens/vehicle_owner/register_owner.dart';
 import 'package:parikapp_driver/widgets/sidebar.dart';
 import 'package:parikapp_driver/widgets/statement_card.dart';
-import 'package:parikapp_driver/widgets/textField.dart';
+import 'package:parikapp_driver/widgets/text_field.dart';
 import '../../utils/variables.dart';
 import '../../widgets/navbar.dart';
 

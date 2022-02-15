@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:parikapp_driver/widgets/inputSelect.dart';
+import 'package:parikapp_driver/widgets/input_select.dart';
 import 'package:parikapp_driver/widgets/layout_widget.dart';
 import 'package:parikapp_driver/widgets/navbar.dart';
-import 'package:parikapp_driver/widgets/textField.dart';
+import 'package:parikapp_driver/widgets/text_field.dart';
 import 'package:parikapp_driver/widgets/tickets/awaiting_payment_modal.dart';
 
 class PayPenalty extends StatefulWidget {
@@ -26,13 +26,11 @@ class _PayPenaltyState extends State<PayPenalty> {
 
   final List<String> paymentMethods = ["MTN Mobile Money", "Tigo/Airtel Money"];
 
-  String _selectedParkingTime = "";
   String _selectedPaymentMethod = "";
 
   @override
   void initState() {
     super.initState();
-    _selectedParkingTime = parkingTime[0];
     _selectedPaymentMethod = paymentMethods[0];
   }
 

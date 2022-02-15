@@ -46,7 +46,7 @@ class StatementCard extends StatelessWidget {
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Expanded(
-                          child: Text("${statement["owner"]}"),
+                          child: Text("${statement["description"]}"),
                         ),
                       ],
                     ),

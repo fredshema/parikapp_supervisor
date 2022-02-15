@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:parikapp_driver/widgets/tickets/payment_successfull_modal.dart';
@@ -9,7 +8,7 @@ class AwaitingPaymentModal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _timer = Timer(const Duration(seconds: 5), () {
+    Timer(const Duration(seconds: 5), () {
       Navigator.of(context).pop();
       showModalBottomSheet(
           context: context,

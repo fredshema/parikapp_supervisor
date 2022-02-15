@@ -42,6 +42,7 @@ class _ActivationScreenState extends State<ActivationScreen> {
     VoidCallback _showActivationCodeModal() {
       showModalBottomSheet(
           context: context,
+          isScrollControlled: false,
           builder: (builder) {
             return const ActivationCodeModal();
           });
@@ -49,6 +50,7 @@ class _ActivationScreenState extends State<ActivationScreen> {
     }
 
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: Navbar(),
       body: Container(
         decoration: BoxDecoration(

@@ -139,8 +139,12 @@ class _ActivationCodeModalState extends State<ActivationCodeModal> {
               child: ElevatedButton(
                 onPressed: () => {
                   Navigator.pop(context),
-                  Navigator.of(context)
-                      .pushNamedAndRemoveUntil(Home.routeName, (_) => false)
+                  Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            const Home(showParkingStatus: false)),
+                    (_) => false,
+                  )
                 },
                 child: const Text("CLOSE"),
                 style: ElevatedButton.styleFrom(
@@ -155,38 +159,38 @@ class _ActivationCodeModalState extends State<ActivationCodeModal> {
       );
     }
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
+    return ListView(
+      shrinkWrap: true,
+      physics: const ScrollPhysics(),
       children: [
         Container(
-          color: Colors.white,
-          child: Container(
-              decoration: const BoxDecoration(
-                color: Colors.white,
-              ),
-              child: Column(
-                children: [
-                  ConstrainedBox(
-                    constraints: BoxConstraints(
-                        minWidth: MediaQuery.of(context).size.width),
-                    child: Container(
-                      padding: const EdgeInsets.all(15.0),
-                      decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.primary),
-                      child: const Text(
-                        "Activating ParikApp",
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
-                        ),
+            padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom),
+            decoration: const BoxDecoration(
+              color: Colors.white,
+            ),
+            child: Column(
+              children: [
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                      minWidth: MediaQuery.of(context).size.width),
+                  child: Container(
+                    padding: const EdgeInsets.all(15.0),
+                    decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.primary),
+                    child: const Text(
+                      "Activating ParikApp",
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                   ),
-                  isActivated ? activationSuccess() : codeInputTab(),
-                ],
-              )),
-        ),
+                ),
+                isActivated ? activationSuccess() : codeInputTab(),
+              ],
+            )),
       ],
     );
   }

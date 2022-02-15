@@ -114,7 +114,7 @@ class _ConfirmRegistrationDetailsState
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
-                          "Vehicles Details",
+                          "Vehicle Details",
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -131,13 +131,6 @@ class _ConfirmRegistrationDetailsState
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  "Vehicle ${vehiclesInfo.indexOf(vehicle) + 1}",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 17,
-                                  ),
-                                ),
                                 const SizedBox(height: 10),
                                 Row(
                                   children: [
@@ -179,7 +172,7 @@ class _ConfirmRegistrationDetailsState
                         )
                       ],
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: const [
@@ -202,7 +195,7 @@ class _ConfirmRegistrationDetailsState
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 20),
                       child: ElevatedButton(
-                        onPressed: () => {},
+                        onPressed: () => {Navigator.pop(context)},
                         child: const Text("CANCEL"),
                         style: ElevatedButton.styleFrom(primary: Colors.grey),
                       ),

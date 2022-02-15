@@ -6,13 +6,13 @@ import 'package:parikapp_driver/screens/vehicle_owner/register_owner.dart';
 import 'package:parikapp_driver/widgets/sidebar.dart';
 import 'package:parikapp_driver/widgets/tickets/parking_status.dart';
 import '../widgets/navbar.dart';
-import '../widgets/activation_code_modal.dart';
 import '../widgets/ticket_card.dart';
 
 class Home extends StatefulWidget {
   static String routeName = "/home";
+  const Home({Key? key, this.showParkingStatus}) : super(key: key);
 
-  const Home({Key? key}) : super(key: key);
+  final bool? showParkingStatus;
 
   @override
   _HomeState createState() => _HomeState();
@@ -20,6 +20,12 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   late Timer _timer;
+
+  Map<String, dynamic> parkingTime = {
+    "plate_number": "RAA 123 A",
+    "parking_lot": "Parking Spot 1",
+    "duration": const Duration(minutes: 1),
+  };
 
   @override
   void initState() {
@@ -43,15 +49,6 @@ class _HomeState extends State<Home> {
         MediaQuery.of(context).viewInsets.top -
         32;
 
-    VoidCallback _showActivationCodeModal() {
-      showModalBottomSheet(
-          context: context,
-          builder: (builder) {
-            return const ActivationCodeModal();
-          });
-      return () => {};
-    }
-
     return Scaffold(
       appBar: Navbar(),
       drawer: const SidebarWidget(),
@@ -60,7 +57,7 @@ class _HomeState extends State<Home> {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
-            end: const Alignment(0.0, 1.2),
+            end: const Alignment(0.0, 1.8),
             colors: <Color>[
               Theme.of(context).colorScheme.primary,
               Colors.white
@@ -68,7 +65,6 @@ class _HomeState extends State<Home> {
             tileMode: TileMode.decal,
           ),
         ),
-        // height: deviceHeight,
         child: SingleChildScrollView(
           child: ConstrainedBox(
             constraints: BoxConstraints(
@@ -79,15 +75,14 @@ class _HomeState extends State<Home> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  width: 320,
-                  padding: const EdgeInsets.only(top: 30),
+                  width: 300,
+                  padding: const EdgeInsets.only(top: 30, bottom: 30),
                   child: const Image(
                       image: AssetImage("assets/images/logo-big.png")),
                 ),
-                const SizedBox(height: 30),
                 Column(
-                  children: const [
-                    Text(
+                  children: [
+                    const Text(
                       "Welcome",
                       style: TextStyle(
                         fontSize: 20,
@@ -95,7 +90,7 @@ class _HomeState extends State<Home> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    Text(
+                    const Text(
                       "John Doe",
                       style: TextStyle(
                         fontSize: 25,
@@ -103,14 +98,16 @@ class _HomeState extends State<Home> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 20),
-                    ParkingStatus(),
-                    TicketCard(
+                    const SizedBox(height: 20),
+                    widget.showParkingStatus ?? false
+                        ? ParkingStatus(parkingTime: parkingTime)
+                        : const Text(""),
+                    const TicketCard(
                       icon: Icons.confirmation_num,
                       text: "Buy Parking Time",
                       path: BuyTicket.routeName,
                     ),
-                    TicketCard(
+                    const TicketCard(
                       icon: Icons.directions_car,
                       text: "Register a vehicle",
                       path: RegisterOwner.routeName,
