@@ -8,4 +8,8 @@ class Variables {
         MediaQuery.of(context).viewInsets.top -
         32;
   }
+
+  static deviceWidth(context) {
+    return MediaQuery.of(context).size.width;
+  }
 }

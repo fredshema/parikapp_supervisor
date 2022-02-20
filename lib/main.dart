@@ -1,18 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:parikapp_driver/screens/about.dart';
-import 'package:parikapp_driver/screens/messages/my_messages.dart';
-import 'package:parikapp_driver/screens/profile/my_profile.dart';
-import 'package:parikapp_driver/screens/statements/my_statements.dart';
-import 'package:parikapp_driver/screens/tickets/buy_ticket.dart';
-import 'package:parikapp_driver/screens/tickets/pay_penalty.dart';
-import 'package:parikapp_driver/screens/vehicle_owner/confirm_registration_details.dart';
-import 'package:parikapp_driver/screens/vehicle_owner/register_owner.dart';
-import 'package:parikapp_driver/screens/vehicle_owner/register_vehicle_details.dart';
-import 'package:parikapp_driver/screens/vehicles/edit_vehicle.dart';
-import 'package:parikapp_driver/screens/vehicles/my_vehicles.dart';
+import 'package:parikapp_supervisor/screens/about.dart';
+import 'package:parikapp_supervisor/screens/agent/agents.dart';
+import 'package:parikapp_supervisor/screens/agent/assign_agent.dart';
+import 'package:parikapp_supervisor/screens/auth/login.dart';
+import 'package:parikapp_supervisor/screens/reports/agent_reports.dart';
 import "./utils/custom_colors.dart";
-import './screens/activation_screen.dart';
 import 'screens/home.dart';
 
 void main() {
@@ -45,6 +38,7 @@ class MyApp extends StatelessWidget {
             Theme.of(context).textTheme.apply(
                   bodyColor: CustomColor.SUPER_DARK_GREY,
                   displayColor: CustomColor.SUPER_DARK_GREY,
+                  fontSizeDelta: 0.5,
                 ),
           ),
           inputDecorationTheme: theme.inputDecorationTheme.copyWith(
@@ -71,27 +65,14 @@ class MyApp extends StatelessWidget {
           )),
         ),
         // home: const SafeArea(child: Home()),
-        home: const SafeArea(child: ActivationScreen()),
+        home: const Login(),
         routes: {
-          Home.routeName: (ctx) => const SafeArea(child: Home()),
-          RegisterOwner.routeName: (ctx) =>
-              const SafeArea(child: RegisterOwner()),
-          RegisterVehicleDetails.routeName: (ctx) =>
-              const SafeArea(child: RegisterVehicleDetails()),
-          ConfirmRegistrationDetails.routeName: (ctx) =>
-              const SafeArea(child: ConfirmRegistrationDetails()),
-          MyVehicles.routeName: (ctx) => const SafeArea(child: MyVehicles()),
-          BuyTicket.routeName: (ctx) => const SafeArea(child: BuyTicket()),
-          PayPenalty.routeName: (ctx) => const SafeArea(child: PayPenalty()),
-          MyStatements.routeName: (ctx) =>
-              const SafeArea(child: MyStatements()),
-          MyMessages.routeName: (ctx) => const SafeArea(child: MyMessages()),
-          MyProfile.routeName: (ctx) => const SafeArea(child: MyProfile()),
-          About.routeName: (ctx) => const SafeArea(child: About()),
-          EditVehicle.routeName: (ctx) => const SafeArea(
-                  child: EditVehicle(
-                vehicle: {},
-              )),
+          Home.routeName: (ctx) => Home(),
+          Login.routeName: (ctx) => const Login(),
+          AssignAgent.routeName: (ctx) => const AssignAgent(),
+          Agents.routeName: (ctx) => const Agents(),
+          AgentReports.routeName: (ctx) => const AgentReports(),
+          About.routeName: (ctx) => const About(),
         },
       ),
     );

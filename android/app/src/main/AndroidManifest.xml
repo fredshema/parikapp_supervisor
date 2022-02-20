@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.parikapp_driver">
+    package="com.example.parikapp_supervisor">
    <application
-        android:label="parikapp_driver"
+        android:label="parikapp_supervisor"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

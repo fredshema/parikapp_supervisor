@@ -1,12 +1,10 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:parikapp_driver/screens/tickets/buy_ticket.dart';
-import 'package:parikapp_driver/screens/vehicle_owner/register_owner.dart';
-import 'package:parikapp_driver/widgets/sidebar.dart';
-import 'package:parikapp_driver/widgets/tickets/parking_status.dart';
+import 'package:parikapp_supervisor/screens/agent/assign_agent.dart';
+import 'package:parikapp_supervisor/screens/layouts/gradient_layout.dart';
+import 'package:parikapp_supervisor/screens/reports/agent_reports.dart';
+import 'package:parikapp_supervisor/widgets/select_card.dart';
+import 'package:parikapp_supervisor/widgets/sidebar.dart';
 import '../widgets/navbar.dart';
-import '../widgets/ticket_card.dart';
 
 class Home extends StatefulWidget {
   static String routeName = "/home";
@@ -19,104 +17,70 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  late Timer _timer;
-
-  Map<String, dynamic> parkingTime = {
-    "plate_number": "RAA 123 A",
-    "parking_lot": "Parking Spot 1",
-    "duration": const Duration(minutes: 1),
-  };
-
   @override
   void initState() {
     super.initState();
-
-    _timer = Timer(const Duration(seconds: 5), () {
-      setState(() {});
-    });
   }
 
   @override
   void dispose() {
     super.dispose();
-    _timer.cancel();
   }
 
   @override
   Widget build(BuildContext context) {
-    final deviceHeight = MediaQuery.of(context).size.height -
-        Navbar().preferredSize.height -
-        MediaQuery.of(context).viewInsets.top -
-        32;
-
     return Scaffold(
       appBar: Navbar(),
       drawer: const SidebarWidget(),
-      body: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: const Alignment(0.0, 1.8),
-            colors: <Color>[
-              Theme.of(context).colorScheme.primary,
-              Colors.white
-            ],
-            tileMode: TileMode.decal,
-          ),
-        ),
-        child: SingleChildScrollView(
-          child: ConstrainedBox(
-            constraints: BoxConstraints(
-              maxHeight: deviceHeight,
-              minHeight: deviceHeight,
+      body: GradientLayout(
+        padding: EdgeInsets.symmetric(horizontal: 25),
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.only(top: 30, bottom: 40),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  const Image(
+                    image: AssetImage("assets/images/logo-big.png"),
+                    height: 80,
+                  ),
+                  Text(
+                    "AGENT",
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.right,
+                  )
+                ],
+              ),
             ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
+            Column(
               children: [
-                Container(
-                  width: 300,
-                  padding: const EdgeInsets.only(top: 30, bottom: 30),
-                  child: const Image(
-                      image: AssetImage("assets/images/logo-big.png")),
+                const Text(
+                  "AGENT 12345",
+                  style: TextStyle(
+                    fontSize: 23,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                Column(
-                  children: [
-                    const Text(
-                      "Welcome",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    const Text(
-                      "John Doe",
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    widget.showParkingStatus ?? false
-                        ? ParkingStatus(parkingTime: parkingTime)
-                        : const Text(""),
-                    const TicketCard(
-                      icon: Icons.confirmation_num,
-                      text: "Buy Parking Time",
-                      path: BuyTicket.routeName,
-                    ),
-                    const TicketCard(
-                      icon: Icons.directions_car,
-                      text: "Register a vehicle",
-                      path: RegisterOwner.routeName,
-                    ),
-                  ],
-                )
+                const SizedBox(height: 10),
+                const SelectCard(
+                  icon: Icons.car_repair,
+                  text: "Assign Agent To Parking",
+                  path: AssignAgent.routeName,
+                ),
+                const SelectCard(
+                  icon: Icons.assignment_ind,
+                  text: "Agent Reports",
+                  path: AgentReports.routeName,
+                ),
               ],
-            ),
-          ),
+            )
+          ],
         ),
       ),
     );

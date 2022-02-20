@@ -1,4 +1,4 @@
-package com.example.parikapp_driver
+package com.example.parikapp_supervisor
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:parikapp_driver/utils/custom_colors.dart';
+import 'package:parikapp_supervisor/utils/custom_colors.dart';
 
 class Navbar extends AppBar {
  final TextStyle textStyle;

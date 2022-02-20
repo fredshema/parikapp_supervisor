@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:parikapp_driver/screens/about.dart';
-import 'package:parikapp_driver/screens/home.dart';
-import 'package:parikapp_driver/screens/messages/my_messages.dart';
-import 'package:parikapp_driver/screens/profile/my_profile.dart';
-import 'package:parikapp_driver/screens/statements/my_statements.dart';
-import 'package:parikapp_driver/screens/vehicles/my_vehicles.dart';
+import 'package:parikapp_supervisor/screens/about.dart';
+import 'package:parikapp_supervisor/screens/agent/agents.dart';
+import 'package:parikapp_supervisor/screens/auth/login.dart';
+import 'package:parikapp_supervisor/screens/home.dart';
 
 class SidebarWidget extends StatelessWidget {
   const SidebarWidget({Key? key}) : super(key: key);
@@ -53,25 +51,17 @@ class SidebarWidget extends StatelessWidget {
               text: "Home",
               onClicked: () => selectedItem(context, 0)),
           buildMenuItem(
-              icon: Icons.directions_car,
-              text: "Vehicles",
+              icon: Icons.supervisor_account,
+              text: "Agents",
               onClicked: () => selectedItem(context, 1)),
           buildMenuItem(
-              icon: Icons.description,
-              text: "Statements",
+              icon: Icons.info,
+              text: "About",
               onClicked: () => selectedItem(context, 2)),
           buildMenuItem(
-              icon: Icons.mail,
-              text: "Messages",
+              icon: Icons.logout_rounded,
+              text: "Logout",
               onClicked: () => selectedItem(context, 3)),
-          buildMenuItem(
-              icon: Icons.account_circle,
-              text: "Profile",
-              onClicked: () => selectedItem(context, 4)),
-          buildMenuItem(
-              icon: Icons.info,
-              text: "About the app",
-              onClicked: () => selectedItem(context, 5)),
         ],
       ),
     );
@@ -109,27 +99,17 @@ void selectedItem(BuildContext context, index) {
     case 1:
       Navigator.of(context).pop();
       Navigator.of(context)
-          .pushNamedAndRemoveUntil(MyVehicles.routeName, (_) => false);
+          .pushNamedAndRemoveUntil(Agents.routeName, (_) => false);
       break;
     case 2:
       Navigator.of(context).pop();
       Navigator.of(context)
-          .pushNamedAndRemoveUntil(MyStatements.routeName, (_) => false);
+          .pushNamedAndRemoveUntil(About.routeName, (_) => false);
       break;
     case 3:
       Navigator.of(context).pop();
       Navigator.of(context)
-          .pushNamedAndRemoveUntil(MyMessages.routeName, (_) => false);
-      break;
-    case 4:
-      Navigator.of(context).pop();
-      Navigator.of(context)
-          .pushNamedAndRemoveUntil(MyProfile.routeName, (_) => false);
-      break;
-    case 5:
-      Navigator.of(context).pop();
-      Navigator.of(context)
-          .pushNamedAndRemoveUntil(About.routeName, (_) => false);
+          .pushNamedAndRemoveUntil(Login.routeName, (_) => false);
       break;
   }
 }

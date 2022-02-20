@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:parikapp_driver/widgets/flag.dart';
+import 'package:parikapp_supervisor/widgets/flag.dart';
 
 class ChangeLanguage extends StatelessWidget {
   const ChangeLanguage({Key? key}) : super(key: key);

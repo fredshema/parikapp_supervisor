@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
-project(parikapp_driver LANGUAGES CXX)
+project(parikapp_supervisor LANGUAGES CXX)
 
-set(BINARY_NAME "parikapp_driver")
+set(BINARY_NAME "parikapp_supervisor")
 
 cmake_policy(SET CMP0063 NEW)
 

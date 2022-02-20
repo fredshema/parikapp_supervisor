@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:parikapp_driver/widgets/layout_widget.dart';
-import 'package:parikapp_driver/widgets/sidebar.dart';
+import 'package:parikapp_supervisor/screens/layouts/default_layout.dart';
+import 'package:parikapp_supervisor/widgets/sidebar.dart';
 import '../../utils/variables.dart';
 import '../../widgets/navbar.dart';
 
@@ -19,7 +19,7 @@ class _AboutState extends State<About> {
     return Scaffold(
       drawer: const SidebarWidget(),
       appBar: Navbar(name: "About The App"),
-      body: LayoutWidget(
+      body: DefaultLayout(
         child: ConstrainedBox(
           constraints: BoxConstraints(
             minHeight: Variables.deviceHeight(context),

@@ -1,6 +1,6 @@
 {
-    "name": "parikapp_driver",
-    "short_name": "parikapp_driver",
+    "name": "parikapp_supervisor",
+    "short_name": "parikapp_supervisor",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

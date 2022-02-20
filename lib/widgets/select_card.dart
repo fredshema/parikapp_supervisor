@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class TicketCard extends StatelessWidget {
+class SelectCard extends StatelessWidget {
   final IconData icon;
   final String text;
   final String path;
 
-  const TicketCard(
+  const SelectCard(
       {Key? key, required this.icon, required this.text, this.path = ""})
       : super(key: key);
 
@@ -13,14 +13,14 @@ class TicketCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       child: InkWell(
         onTap: () => {
           if (path != "") {Navigator.of(context).pushNamed(path)}
         },
         child: Card(
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
           child: Container(
             padding: const EdgeInsets.all(18),
             child: Column(
